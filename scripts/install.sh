@@ -1,5 +1,7 @@
 sudo apt update && sudo apt full-upgrade -y
 
+dotfilesDir=$HOME/.dotfiles
+
 function install {
   which $1 &> /dev/null
 
@@ -16,10 +18,7 @@ install git
 install htop
 install jq
 
-for f in programs/*.sh; do bash "$f" -H; done
-
-
-dotfilesDir=$HOME/.dotfiles
+for f in $dotfilesDir/scripts/programs/*.sh; do bash "$f" -H; done
 
 function linkDotfile {
   dest="${HOME}/${1}"
