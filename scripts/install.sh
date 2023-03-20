@@ -19,7 +19,7 @@ install jq
 for f in programs/*.sh; do bash "$f" -H; done
 
 
-dotfilesDir=$(pwd)
+dotfilesDir=$HOME/.dotfiles
 
 function linkDotfile {
   dest="${HOME}/${1}"
