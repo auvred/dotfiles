@@ -2,6 +2,7 @@ sudo apt update && sudo apt full-upgrade -y
 
 dotfilesDir=$HOME/.dotfiles
 
+# this was stolen from here https://github.com/victoriadrake/dotfiles/blob/77165d72f17e91b457e2b7a1d83c632eb3698d61/scripts/install.sh
 function install {
   which $1 &> /dev/null
 
@@ -20,6 +21,8 @@ install jq
 
 for f in $dotfilesDir/scripts/programs/*.sh; do bash "$f" -H; done
 
+
+# this was stolen from here https://github.com/tomnomnom/dotfiles/blob/d2f90b12081f3d4364795a834df7fa8890aed6cd/setup.sh
 function linkDotfile {
   dest="${HOME}/${1}"
   dateStr=$(date +%Y-%m-%d-%H%M)
