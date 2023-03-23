@@ -32,6 +32,7 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
+    my_workspace_name
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
@@ -1621,9 +1622,13 @@
 
     if [ -f "$ENV" ] && type jq &> /dev/null; then
       local env_info=$(cat $ENV | jq -r ".envName")
-      
+
       p10k segment -i '⟁' -f '#c29013' -t $env_info
     fi
+  }
+
+  function prompt_my_workspace_name() {
+    p10k segment -f '#e34c1e' -t "$MY_WORKSPACE_NAME"
   }
 
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
