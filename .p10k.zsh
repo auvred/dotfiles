@@ -1628,7 +1628,13 @@
   }
 
   function prompt_my_workspace_name() {
-    p10k segment -f '#e34c1e' -t "$MY_WORKSPACE_NAME"
+    if [ "$MY_WORKSPACE_TYPE" = "localhost" ]
+    then
+      p10k segment -i 'ﴤ' -f '#e34c1e' -t "$MY_WORKSPACE_NAME"
+    elif [ "$MY_WORKSPACE_TYPE" = "dev-container" ]
+    then
+      p10k segment -i '' -f '#f7492a' -t "$MY_WORKSPACE_NAME"
+    fi
   }
 
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
