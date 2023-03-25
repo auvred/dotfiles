@@ -1,3 +1,6 @@
 sudo apt install -y zsh
 
-sudo chsh -s $(which zsh) $(whoami)
+if [ $MY_WORKSPACE_TYPE == 'dev-container' ]
+then
+  sudo chsh -s $(which zsh) $(whoami)
+fi
