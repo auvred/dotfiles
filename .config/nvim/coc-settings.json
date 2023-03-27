@@ -1,0 +1,10 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "json"], 
+  "eslint.packageManager": "pnpm",
+  "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.execArgv": [
+		"--max_old_space_size=4096"
+	],
+  "coc.preferences.diagnostic.virtualText": true,
+}
