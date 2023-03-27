@@ -1,5 +1,5 @@
 call plug#begin("~/.vim/plugged")
-  Plug 'dracula/vim'
+  Plug 'doums/darcula'
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   let g:coc_global_extensions = ['coc-emmet', 'coc-eslint', 'coc-tsserver']
@@ -8,7 +8,6 @@ call plug#begin("~/.vim/plugged")
 
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
-
 call plug#end()
 
 "Config Section
@@ -17,7 +16,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme dracula
+colorscheme darcula
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
