@@ -48,6 +48,7 @@ function linkDotfile {
 
 linkDotfile .p10k.zsh
 linkDotfile .zshrc
+mkdir -p ~/.config
 linkDotfile .config/nvim
 
 
