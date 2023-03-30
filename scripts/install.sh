@@ -18,6 +18,7 @@ install curl
 install git
 install htop
 install jq
+install exa
 
 
 
