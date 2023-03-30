@@ -2,7 +2,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'doums/darcula'
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = ['coc-emmet', 'coc-eslint', 'coc-tsserver']
+  let g:coc_global_extensions = ['coc-json', 'coc-emmet', 'coc-eslint', 'coc-tsserver']
 
   Plug 'leafgarland/typescript-vim' 
 
