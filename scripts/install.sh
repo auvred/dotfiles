@@ -19,6 +19,7 @@ install git
 install htop
 install jq
 install exa
+install rsync
 
 
 
