@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
 
 
   use {'neoclide/coc.nvim', branch = 'release'}
-  vim.cmd "let g:coc_global_extensions = ['coc-json', 'coc-emmet', 'coc-eslint', 'coc-tsserver']"
+  vim.g.coc_global_extensions = { 'coc-json', 'coc-emmet', 'coc-eslint', 'coc-tsserver' }
 
   use 'navarasu/onedark.nvim'
 
@@ -40,5 +40,12 @@ return require('packer').startup(function(use)
       }
     end,
   }
+
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  require('lualine').setup()
 
 end)

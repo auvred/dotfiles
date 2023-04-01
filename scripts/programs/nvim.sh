@@ -2,8 +2,11 @@ curl -LS https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
 sudo apt install /tmp/nvim.deb
 rm /tmp/nvim.deb
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+PACKER_PATH=~/.local/share/nvim/site/pack/packer/start/packer.nvim
+if [ ! -d "$PACKER_PATH" ]
+then
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim $PACKER_PATH
+fi
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
