@@ -2,10 +2,10 @@ curl -LS https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
 sudo apt install /tmp/nvim.deb
 rm /tmp/nvim.deb
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
- https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-nvim --headless +PlugInstall +UpdateRemotePlugins +qall
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 mkdir -p ~/.config/coc/extensions
 echo '{"dependencies": {}}' >~/.config/coc/extensions/package.json
