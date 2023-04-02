@@ -4,7 +4,6 @@ local opt = vim.opt
 
 cmd('syntax enable')
 opt.termguicolors = true
-cmd('colorscheme onedark')
 
 -- highlight yanked text
 vim.api.nvim_exec([[
