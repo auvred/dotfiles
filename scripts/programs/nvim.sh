@@ -9,6 +9,7 @@ then
 fi
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'TSUpdateSync' -c q
 
 mkdir -p ~/.config/coc/extensions
 echo '{"dependencies": {}}' >~/.config/coc/extensions/package.json

@@ -3,18 +3,13 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+  use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-context'
 
   use {'neoclide/coc.nvim', branch = 'release'}
   vim.g.coc_global_extensions = { 'coc-json', 'coc-emmet', 'coc-eslint', 'coc-tsserver', '@yaegassy/coc-volar' }
 
   use 'navarasu/onedark.nvim'
-
-  use 'leafgarland/typescript-vim'
 
 
   use {
