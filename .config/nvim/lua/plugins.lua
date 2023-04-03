@@ -54,5 +54,12 @@ return require('packer').startup(function(use)
     tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
 
 end)
