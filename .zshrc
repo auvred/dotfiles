@@ -8,6 +8,10 @@ fi
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 
+export VISUAL=nvim
+export EDITOR=$VISUAL
+set -o vi
+
 # p10k zsh theme
 source ~/.dotfiles/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
