@@ -1,4 +1,5 @@
-curl -LS https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -o /tmp/nvim.deb
+# TODO: update to latest
+curl -LS https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb -o /tmp/nvim.deb
 sudo apt install /tmp/nvim.deb
 rm /tmp/nvim.deb
 
