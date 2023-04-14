@@ -30,3 +30,6 @@ zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # case-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# aliases
+alias ll="exa -lha"
