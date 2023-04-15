@@ -33,3 +33,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # aliases
 alias ll="exa -lha"
+alias bat="batcat"
