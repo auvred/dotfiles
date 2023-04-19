@@ -7,9 +7,16 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-context'
 
   use {'neoclide/coc.nvim', branch = 'release'}
-  vim.g.coc_global_extensions = { 'coc-json', 'coc-emmet', 'coc-eslint', 'coc-tsserver', '@yaegassy/coc-volar' }
+  vim.g.coc_global_extensions = { 
+    'coc-json',
+    'coc-emmet', 
+    'coc-eslint', 
+    'coc-tsserver', 
+    '@yaegassy/coc-volar',
+    'coc-rust-analyzer'
+  }
 
-  use 'navarasu/onedark.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
 
   use {
