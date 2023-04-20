@@ -1,9 +1,14 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "json"], 
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "json",
+    "rust"
+  ],
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
   "eslint.execArgv": [
-		"--max_old_space_size=4096"
-	],
+    "--max_old_space_size=4096"
+  ],
   "coc.preferences.diagnostic.virtualText": true,
 }

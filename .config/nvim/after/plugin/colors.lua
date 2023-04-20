@@ -3,3 +3,7 @@ require('catppuccin').setup {
 }
 
 vim.cmd[[colorscheme catppuccin]]
+
+vim.cmd[[hi CocInlayHint ctermfg=187 guifg=#374f43]]
+
+
