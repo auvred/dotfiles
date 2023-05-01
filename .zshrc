@@ -12,6 +12,7 @@ export VISUAL=nvim
 export EDITOR=$VISUAL
 set -o vi
 
+
 # p10k zsh theme
 source ~/.dotfiles/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -21,6 +22,22 @@ if [[ -z "${NVM_DIR}" ]]; then
   export NVM_DIR=$HOME/nvm
 fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+
+# fzf
+FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+export FZF_CTRL_T_OPTS="
+  --preview 'batcat --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export FZF_DEFAULT_COMMAND="fdfind --type f --type l $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+_fzf_compgen_path() {
+  command fdfind --hidden --follow --exclude .git --exclude node_modules . "$1"
+}
+_fzf_compgen_dir() {
+  command fdfind --type d --hidden --follow --exclude .git --exclude node_modules . "$1"
+}
 
 # completion
 autoload -Uz compinit && compinit
@@ -34,3 +51,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # aliases
 alias ll="exa -lha"
 alias bat="batcat"
+alias fd="fdfind"

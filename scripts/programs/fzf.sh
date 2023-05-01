@@ -1,0 +1,1 @@
+~/.dotfiles/fzf/install --all

@@ -22,6 +22,7 @@ install exa
 install rsync
 install ripgrep
 install bat
+install fd-find
 
 
 # this was stolen from here https://github.com/tomnomnom/dotfiles/blob/d2f90b12081f3d4364795a834df7fa8890aed6cd/setup.sh
