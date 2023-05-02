@@ -2,7 +2,7 @@ sudo apt update && sudo apt full-upgrade -y
 
 dotfiles_dir=$HOME/.dotfiles
 
-sudo apt install -y
+sudo apt install -y \
   curl \
   git \
   htop \
@@ -42,10 +42,11 @@ echo
 echo "Linking dotfiles..."
 echo
 
+mkdir -p ~/.config
 linkDotfile .p10k.zsh
 linkDotfile .zshrc
-mkdir -p ~/.config
 linkDotfile .config/nvim
+linkDotfile .config/bat
 
 echo
 echo "Installation scripts"
@@ -55,6 +56,7 @@ programs=(
   "zsh"
   "nvim"
   "fzf"
+  "bat"
 )
 
 for p in ${programs[@]}; do

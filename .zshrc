@@ -39,6 +39,9 @@ _fzf_compgen_dir() {
   command fdfind --type d --hidden --follow --exclude .git --exclude node_modules . "$1"
 }
 
+# bat
+export BAT_THEME="Catppuccin-mocha"
+
 # completion
 autoload -Uz compinit && compinit
 fpath=(~/.dotfiles/.zsh/completion $fpath)
