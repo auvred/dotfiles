@@ -1,29 +1,17 @@
 sudo apt update && sudo apt full-upgrade -y
 
-dotfilesDir=$HOME/.dotfiles
+dotfiles_dir=$HOME/.dotfiles
 
-# this was stolen from here https://github.com/victoriadrake/dotfiles/blob/77165d72f17e91b457e2b7a1d83c632eb3698d61/scripts/install.sh
-function install {
-  which $1 &> /dev/null
-
-  if [ $? -ne 0 ]; then
-    echo "Installing: ${1}..."
-    sudo apt install -y $1
-  else
-    echo "Already installed: ${1}"
-  fi
-}
-
-install curl
-install git
-install htop
-install jq
-install exa
-install rsync
-install ripgrep
-install bat
-install fd-find
-
+sudo apt install -y
+  curl \
+  git \
+  htop \
+  jq \
+  exa \
+  rsync \
+  ripgrep \
+  bat \
+  fd-find
 
 # this was stolen from here https://github.com/tomnomnom/dotfiles/blob/d2f90b12081f3d4364795a834df7fa8890aed6cd/setup.sh
 function linkDotfile {
@@ -47,14 +35,35 @@ function linkDotfile {
   fi
 
   echo "Creating new symlink: ${dest}"
-  ln -s ${dotfilesDir}/${1} ${dest}
+  ln -s ${dotfiles_dir}/${1} ${dest}
 }
+
+echo
+echo "Linking dotfiles..."
+echo
 
 linkDotfile .p10k.zsh
 linkDotfile .zshrc
 mkdir -p ~/.config
 linkDotfile .config/nvim
 
+echo
+echo "Installation scripts"
+echo
 
+programs=(
+  "zsh"
+  "nvim"
+  "fzf"
+)
 
-for f in $dotfilesDir/scripts/programs/*.sh; do bash "$f" -H; done
+for p in ${programs[@]}; do
+  echo
+  echo "Running '$p' program installation script..."
+  file_path="$HOME/.dotfiles/scripts/programs/$p.sh"
+  if [[ -f "$file_path" ]]; then
+    bash "$file_path" -H
+  else
+    echo "Script $file_path not found. Skipping..."
+  fi
+done
