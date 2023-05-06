@@ -55,3 +55,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 alias ll="exa -lha"
 alias bat="batcat"
 alias fd="fdfind"
+alias vi="nvim"
