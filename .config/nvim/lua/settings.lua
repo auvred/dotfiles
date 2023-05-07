@@ -22,3 +22,4 @@ opt.cursorline = true
 opt.relativenumber = true
 opt.scrolloff = 10
 opt.ignorecase = true
+opt.updatetime = 300
