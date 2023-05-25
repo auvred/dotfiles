@@ -47,6 +47,7 @@ linkDotfile .p10k.zsh
 linkDotfile .zshrc
 linkDotfile .config/nvim
 linkDotfile .config/bat
+linkDotfile .config/vifm
 
 echo
 echo "Installation scripts"
@@ -57,6 +58,7 @@ programs=(
   "nvim"
   "fzf"
   "bat"
+  "vifm"
 )
 
 for p in ${programs[@]}; do
