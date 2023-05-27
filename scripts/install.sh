@@ -11,7 +11,8 @@ sudo apt install -y \
   rsync \
   ripgrep \
   bat \
-  fd-find
+  fd-find \
+  wget
 
 # this was stolen from here https://github.com/tomnomnom/dotfiles/blob/d2f90b12081f3d4364795a834df7fa8890aed6cd/setup.sh
 function linkDotfile {
@@ -48,6 +49,7 @@ linkDotfile .zshrc
 linkDotfile .config/nvim
 linkDotfile .config/bat
 linkDotfile .config/vifm
+linkDotfile .config/gitui
 
 echo
 echo "Installation scripts"
@@ -59,6 +61,7 @@ programs=(
   "fzf"
   "bat"
   "vifm"
+  "gitui"
 )
 
 for p in ${programs[@]}; do
