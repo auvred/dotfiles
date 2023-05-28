@@ -58,6 +58,7 @@ echo
 programs=(
   "zsh"
   "nvim"
+  "git"
   "fzf"
   "bat"
   "vifm"
