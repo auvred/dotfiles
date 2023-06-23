@@ -1,11 +1,12 @@
 {
-  "[javascript][typescript][json][rust]": {
-    "coc.preferences.formatOnSave": true
+  "[json][rust]": {
+    "coc.preferences.formatOnSave": false
   },
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
   "eslint.execArgv": [
     "--max_old_space_size=4096"
   ],
-  "typescript.suggest.completeFunctionCalls": false
+  "typescript.suggest.completeFunctionCalls": false,
+  "javascript.suggest.completeFunctionCalls": false
 }
