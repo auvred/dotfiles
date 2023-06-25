@@ -1,11 +1,9 @@
-if ! command -v gitui &> /dev/null; then
+gitui_version=0.23.0
+
+if [[ $(command -v gitui) && $(gitui --version) == "gitui $gitui_version" ]]; then
+  echo "gitui found. skipping installation..."
+else
   echo "gitui not found. installing from gh release"
 
-  cd /tmp
-  wget https://github.com/extrawurst/gitui/releases/download/v0.22.1/gitui-linux-musl.tar.gz
-  tar xf gitui-linux-musl.tar.gz
-  sudo mv gitui /usr/local/bin/gitui
-else
-  echo "gitui found. skipping installation..."
+  wget -cO- https://github.com/extrawurst/gitui/releases/download/v$gitui_version/gitui-linux-musl.tar.gz | sudo tar -xz -C /usr/local/bin
 fi
-
