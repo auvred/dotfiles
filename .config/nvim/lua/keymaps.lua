@@ -26,6 +26,10 @@ map('n', 'K', '<CMD>lua _G.show_docs()<CR>', { silent = true })
 -- trigger completion
 map('i', '<C-space>', 'coc#refresh()', { silent = true, expr = true })
 
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
 map('i', '<TAB>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', { silent = true, expr = true })
 map('i', '<S-TAB>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], { silent = true, expr = true })
 
