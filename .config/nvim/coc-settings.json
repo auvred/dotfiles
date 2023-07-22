@@ -1,6 +1,6 @@
 {
-  "[json][rust]": {
-    "coc.preferences.formatOnSave": false
+  "[rust]": {
+    "coc.preferences.formatOnSave": true
   },
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
