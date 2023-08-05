@@ -21,8 +21,6 @@ require("lazy").setup({
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		tag = "v0.8.5",
-		pin = true,
 		build = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter")
@@ -67,7 +65,6 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
@@ -76,17 +73,17 @@ require("lazy").setup({
 			require("Comment").setup()
 		end,
 	},
-  {
-    'axelvc/template-string.nvim',
-    opts = {
-      filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
-      remove_template_string = true,
-      restore_quotes = {
-        normal = [[']],
-        jsx = [["]],
-      },
-    },
-    event = 'InsertEnter',
-    ft = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' },
-  },
+	{
+		"axelvc/template-string.nvim",
+		opts = {
+			filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
+			remove_template_string = true,
+			restore_quotes = {
+				normal = [[']],
+				jsx = [["]],
+			},
+		},
+		event = "InsertEnter",
+		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
+	},
 })
