@@ -1,17 +1,19 @@
 local cmd = vim.cmd
 local opt = vim.opt
 
-
-cmd('syntax enable')
+cmd("syntax enable")
 opt.termguicolors = true
 
 -- highlight yanked text
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
 augroup YankHighlight
 autocmd!
 autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
 augroup end
-]], false)
+]],
+	false
+)
 
 opt.expandtab = true
 opt.shiftwidth = 2

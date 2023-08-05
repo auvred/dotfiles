@@ -1,64 +1,76 @@
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'nvim-treesitter/nvim-treesitter-context'
-
-  use {'neoclide/coc.nvim', branch = 'release'}
-  vim.g.coc_global_extensions = { 
-    'coc-json',
-    'coc-emmet', 
-    'coc-eslint', 
-    'coc-tsserver', 
-    '@yaegassy/coc-volar',
-    'coc-rust-analyzer'
-  }
-
-  use { "catppuccin/nvim", as = "catppuccin" }
-
-
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    },
-  }
-
-
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-
-
-  use {
-    'max397574/better-escape.nvim',
-    config = function()
-      require('better_escape').setup {
-        timeout = 200
-      }
-    end,
-  }
-
-
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-    config = function()
-      require('lualine').setup()
-    end
-  }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
-
-end)
+require("lazy").setup({
+	{
+		"j-morano/buffer_manager.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("plugins.buffer-manager")
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		tag = "v0.8.5",
+    pin = true,
+		build = ":TSUpdate",
+		config = function()
+			require("plugins.treesitter")
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+	},
+	{
+		"neoclide/coc.nvim",
+		branch = "release",
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		config = function()
+			require("plugins.catppuccin")
+		end,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("plugins.nvim-tree")
+		end,
+	},
+	{
+		"max397574/better-escape.nvim",
+		config = function()
+			require("plugins.better-escape")
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("plugins.lualine")
+		end,
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+    tag = "0.1.2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+})
