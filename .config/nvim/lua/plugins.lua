@@ -22,7 +22,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		tag = "v0.8.5",
-    pin = true,
+		pin = true,
 		build = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter")
@@ -34,6 +34,9 @@ require("lazy").setup({
 	{
 		"neoclide/coc.nvim",
 		branch = "release",
+		config = function()
+			require("plugins.coc")
+		end,
 	},
 	{
 		"catppuccin/nvim",
@@ -64,7 +67,7 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
+		tag = "0.1.2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
