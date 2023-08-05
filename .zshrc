@@ -28,12 +28,6 @@ set -o vi
 source ~/.dotfiles/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# nvm
-if [[ -z "${NVM_DIR}" ]]; then
-  export NVM_DIR=$HOME/nvm
-fi
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-
 # fzf
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
 export FZF_CTRL_T_OPTS="
