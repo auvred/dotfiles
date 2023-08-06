@@ -1,5 +1,5 @@
 if [[ $(command -v nvim) ]]; then
-  nvim --headless "+Lazy! sync" +qa
+  nvim --headless "+Lazy! install" +qa
   
   mkdir -p ~/.config/coc/extensions
   echo '{"dependencies": {}}' >~/.config/coc/extensions/package.json

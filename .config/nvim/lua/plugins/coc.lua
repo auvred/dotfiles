@@ -7,6 +7,7 @@ vim.g.coc_global_extensions = {
 	"coc-tsserver",
 	"@yaegassy/coc-volar",
 	"coc-rust-analyzer",
+  "coc-yaml",
 }
 
 function show_docs()
