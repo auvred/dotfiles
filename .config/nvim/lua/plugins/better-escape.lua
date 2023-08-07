@@ -1,3 +1,3 @@
 require("better_escape").setup({
-	timeout = 200,
+  timeout = 200,
 })
