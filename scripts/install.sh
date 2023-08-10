@@ -21,7 +21,7 @@ function linkDotfile {
 
   if [ -h ~/${1} ]; then
     echo "Removing existing symlink: ${dest}"
-    rm ${dest} 
+    rm ${dest}
 
   elif [ -f "${dest}" ]; then
     echo "Backing up existing file: ${dest}"
