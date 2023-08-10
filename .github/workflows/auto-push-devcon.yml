@@ -1,0 +1,24 @@
+name: Auto push devcon
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  dispatch:
+    name: Dispatch push workflow
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create workflow dispatch
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.DEVCON_WORKFLOW_DISPATCH_PAT }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              'auvred',
+              'devcon',
+              'push-image.yml',
+              'main',
+            });
