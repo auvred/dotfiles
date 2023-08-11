@@ -15,3 +15,7 @@ function ssha() {
     fi
   done
 }
+
+function sshk() {
+  ssh-agent -k
+}
