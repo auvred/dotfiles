@@ -7,7 +7,7 @@ function ssh_for_gh_repo() {
     git config tag.gpgsign true
     git config user.name auvred
     git config user.email aauvred@gmail.com
-    
+
     if [[ $(git config remote.origin.url) = "https://github.com/auvred/dotfiles.git" ]]; then
       git remote set-url origin git@github.com:auvred/dotfiles
     fi

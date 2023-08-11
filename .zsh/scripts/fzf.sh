@@ -21,8 +21,8 @@ _fzf_compgen_dir() {
 #
 # Inspired by https://github.com/hankchanocd/npm-fzf
 #
-# Creates fzf prompt with scripts from nearest package.json and then runs
-# script with using `packageManager` defined in this or another package.json
+# Creates fzf prompt with scripts from nearest package.json and then runs selected script
+# with `<packageManager> run <script>` (packageManager from package.json if defined, npm otherwise)
 #
 npr() {
   local current_dir=$PWD
