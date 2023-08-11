@@ -47,6 +47,7 @@ linkDotfile .config/nvim
 linkDotfile .config/bat
 linkDotfile .config/vifm
 linkDotfile .config/gitui
+linkDotfile .config/ni
 
 echo
 echo "Installation scripts"
@@ -60,6 +61,7 @@ programs=(
   "bat"
   "vifm"
   "gitui"
+  "ni"
 )
 
 for p in ${programs[@]}; do
