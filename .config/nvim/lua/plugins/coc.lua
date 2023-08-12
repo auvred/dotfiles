@@ -21,7 +21,6 @@ function show_docs()
   end
 end
 
-map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
 map("n", "K", show_docs, { silent = true })
 map("i", "<C-space>", "coc#refresh()", { silent = true, expr = true })
 

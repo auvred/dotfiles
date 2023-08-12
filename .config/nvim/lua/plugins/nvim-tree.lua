@@ -1,3 +1,5 @@
+local map = require("utils").map
+
 require("nvim-tree").setup({
   view = {
     preserve_window_proportions = true,
@@ -30,3 +32,5 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+map("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
