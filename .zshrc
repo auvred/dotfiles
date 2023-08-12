@@ -23,6 +23,8 @@ export VISUAL=nvim
 export EDITOR=$VISUAL
 set -o vi
 
+export DOTFILES_DIR=$HOME/.dotfiles
+
 # completion
 autoload -Uz compinit && compinit
 fpath=(~/.dotfiles/.zsh/completion $fpath)
@@ -32,6 +34,6 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # case-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-for script in ~/.dotfiles/.zsh/scripts/*; do
+for script in $DOTFILES_DIR/.zsh/scripts/*; do
   source $script
 done
