@@ -20,6 +20,9 @@ ssh_for_gh_repo() {
 dotf() {
   if [[ -z $1 ]]; then
     if [[ $PWD == $DOTFILES_DIR ]]; then
+      if [ $(git rev-parse --is-inside-work-tree 2> /dev/null) ]; then
+        return 0
+      fi
       git init
       git remote add origin https://github.com/auvred/dotfiles
       git fetch
