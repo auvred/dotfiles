@@ -24,7 +24,7 @@ _fzf_compgen_dir() {
 # Creates fzf prompt with scripts from nearest package.json and then runs selected script
 # with `<packageManager> run <script>` (packageManager from package.json if defined, npm otherwise)
 #
-npr() {
+nrf() {
   local current_dir=$PWD
   local packagejson_path
 
@@ -43,14 +43,19 @@ npr() {
     return 1
   fi
 
+  local max_script_name_len=$(cat $packagejson_path \
+    | jq '.scripts | keys | map(length) | max')
+  echo $max_script_name_len
   # we need to get $? of fzf after, but 'local' is a builtin command which returns 0
   local script_name_answer
   script_name_answer=$(cat $packagejson_path \
-    | jq -r '(.scripts | to_entries | .[] | (
+    | jq \
+      --arg max_script_name_len $max_script_name_len \
+      -r '(.scripts | to_entries | .[] | (
       "\u001b[1;3;33m" 
       + .key 
       + "\u001b[m"
-      + (" " * (35 - (.key | length)))
+      + (" " * (($max_script_name_len | tonumber) - (.key | length)))
       + " \u001b[32m => \u001b[2;36m" 
       + .value
       + "\u001b[m"))' \
