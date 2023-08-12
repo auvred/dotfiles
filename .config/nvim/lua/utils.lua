@@ -8,4 +8,6 @@ function Utils.map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+Utils.isDevContainerSlim = vim.env.MY_WORKSPACE_TYPE == "dev-container-slim"
+
 return Utils

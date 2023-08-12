@@ -1,4 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local isDevContainerSlim = require("utils").isDevContainerSlim
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -15,16 +17,27 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    -- requires C compiler
+    cond = function()
+      return not isDevContainerSlim
+    end,
     config = function()
       require("plugins.treesitter")
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
+    cond = function()
+      return not isDevContainerSlim
+    end,
   },
   {
     "neoclide/coc.nvim",
     branch = "release",
+    -- contains bloated node_modules + requires nodejs
+    cond = function()
+      return not isDevContainerSlim
+    end,
     config = function()
       require("plugins.coc")
     end,
@@ -68,6 +81,10 @@ require("lazy").setup({
   },
   {
     "axelvc/template-string.nvim",
+    -- requires treesitter
+    cond = function()
+      return not isDevContainerSlim
+    end,
     opts = {
       filetypes = {
         "typescript",

@@ -1630,12 +1630,12 @@ source ~/.dotfiles/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
   }
 
   function prompt_my_workspace_name() {
-    if [ "$MY_WORKSPACE_TYPE" = "localhost" ]
-    then
+    if [ "$MY_WORKSPACE_TYPE" = "localhost" ]; then
       p10k segment -i '󰋜' -f '#e34c1e' -t "$MY_WORKSPACE_NAME"
-    elif [ "$MY_WORKSPACE_TYPE" = "dev-container" ]
-    then
+    elif [ "$MY_WORKSPACE_TYPE" = "dev-container" ]; then
       p10k segment -i '' -f '#e14dff' -t "$MY_WORKSPACE_NAME"
+    elif [ "$MY_WORKSPACE_TYPE" = "dev-container-slim" ]; then
+      p10k segment -i '' -f '#3aeb1e' -t "$MY_WORKSPACE_NAME"
     fi
   }
 
