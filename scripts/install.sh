@@ -48,6 +48,7 @@ linkDotfile .config/bat
 linkDotfile .config/vifm
 linkDotfile .config/gitui
 linkDotfile .config/ni
+linkDotfile .config/tmux
 
 echo
 echo "Installation scripts"
@@ -62,6 +63,7 @@ programs=(
   "vifm"
   "gitui"
   "ni"
+  "tmux"
 )
 
 for p in ${programs[@]}; do
