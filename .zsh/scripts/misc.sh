@@ -1,12 +1,13 @@
 alias ll="exa -lha"
 alias vi="nvim"
 alias fd="fdfind"
+export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
 
-function sshag() {
+sshag() {
   eval $(ssh-agent -s)
 }
 
-function ssha() {
+ssha() {
   sshag
 
   for key in $HOME/.ssh/id_*; do
@@ -16,8 +17,16 @@ function ssha() {
   done
 }
 
-function sshk() {
+sshk() {
   ssh-agent -k
 }
 
-export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
+trim_trailing_whitespaces() {
+  for target in $@; do
+    if [[ -d $target ]]; then
+      find $target -type f -print0 | xargs -0 sed -i 's/[ \t]*$//'
+    elif [[ -f $target ]]; then
+      sed -i 's/[ \t]*$//' $target
+    fi
+  done
+}
