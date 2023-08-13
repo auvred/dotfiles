@@ -1,7 +1,13 @@
-sudo apt update && sudo apt full-upgrade -y
+print_phase_name() {
+  printf "\n\n\n\n\n"
+  printf "   === %s ===" "$1"
+  printf "\n\n\n\n\n"
+}
 
-dotfiles_dir=$HOME/.dotfiles
+print_phase_name "Installing common deps"
 
+sudo apt update
+sudo apt full-upgrade -y
 sudo apt install -y \
   curl \
   exa \
@@ -11,73 +17,44 @@ sudo apt install -y \
   jq \
   rsync \
   ripgrep \
+  stow \
   tree \
   wget
 
-# source: https://github.com/tomnomnom/dotfiles/blob/d2f90b12081f3d4364795a834df7fa8890aed6cd/setup.sh
-function linkDotfile {
-  dest="${HOME}/${1}"
-  dateStr=$(date +%Y-%m-%d-%H%M)
+print_phase_name "Linking configs"
 
-  if [ -h ~/${1} ]; then
-    echo "Removing existing symlink: ${dest}"
-    rm ${dest}
-
-  elif [ -f "${dest}" ]; then
-    echo "Backing up existing file: ${dest}"
-    mv ${dest}{,.${dateStr}}
-
-  elif [ -d "${dest}" ]; then
-    echo "Backing up existing dir: ${dest}"
-    mv ${dest}{,.${dateStr}}
-  fi
-
-  echo "Creating new symlink: ${dest}"
-  ln -s ${dotfiles_dir}/${1} ${dest}
-}
-
-echo
-echo "Linking dotfiles..."
-echo
-
+cd ~/.dotfiles/configs
 mkdir -p ~/.config
-linkDotfile .p10k.zsh
-linkDotfile .zshrc
-linkDotfile .config/nvim
-linkDotfile .config/bat
-linkDotfile .config/vifm
-linkDotfile .config/gitui
-linkDotfile .config/ni
-linkDotfile .config/tmux
 
-echo
-echo "Installation scripts"
-echo
-
-programs=(
-  "zsh"
-  "nvim"
-  "git"
-  "fzf"
-  "bat"
-  "vifm"
-  "gitui"
-  "ni"
-  "tmux"
-)
-
-for p in ${programs[@]}; do
-  echo
-  echo "Running '$p' program installation script..."
-  file_path="$HOME/.dotfiles/scripts/programs/$p.sh"
-  if [[ -f "$file_path" ]]; then
-    bash "$file_path" -H
-  else
-    echo "Script $file_path not found. Skipping..."
-  fi
+for program in *; do
+  stow -R -v -t ~ $program
 done
 
-cd $dotfiles_dir
-git config user.name auvred
-git config user.email aauvred@gmail.com
-cd -
+print_phase_name "Running 'install' scripts"
+
+export DOTFILES_SCRIPT_UTILS=$HOME/.config/zsh/scripts/utils.sh
+
+for program in *; do
+  scripts=$(find $program \
+    -maxdepth 4 \
+    -regex '.*/_dotf_lifecycle/install.sh$')
+
+  if [[ ! $scripts ]]; then
+    continue
+  fi
+
+  printf "\n\n\n   [$program] Running 'install' lifecycle scripts\n\n" $program
+
+  for script in $scripts; do
+    printf " >> %s\n" $script
+    bash $script
+    exit_code=$?
+    printf " >> %s - Done. Exit code - %s\n" $script $exit_code
+    if [ $exit_code -ne 0 ]; then
+      printf "Exit code - \"%s\". Exiting\n" $exit_code
+      exit 1
+    fi
+  done
+
+  printf "\n   [$program] 'install' lifecycle scripts end\n\n\n" $program
+done

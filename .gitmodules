@@ -1,8 +1,0 @@
-[submodule ".zsh/themes/powerlevel10k"]
-	path = .zsh/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-	shallow = true
-[submodule "fzf"]
-	path = fzf
-	url = https://github.com/junegunn/fzf.git
-	shallow = true

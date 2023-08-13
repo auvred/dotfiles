@@ -1,0 +1,23 @@
+{
+  "[rust]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.execArgv": ["--max_old_space_size=4096"],
+  "typescript.suggest.completeFunctionCalls": false,
+  "javascript.suggest.completeFunctionCalls": false,
+  "workspace.bottomUpFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ],
+  "workspace.rootPatterns": [".git", ".hg", ".projections.json", ".vim"]
+}
