@@ -19,5 +19,6 @@
     "jsonc",
     "yaml"
   ],
-  "workspace.rootPatterns": [".git", ".hg", ".projections.json", ".vim"]
+  "workspace.rootPatterns": [".git", ".hg", ".projections.json", ".vim"],
+  "volar.dev.serverPath": "$HOME/.config/coc/extensions/node_modules/@vue/language-server/bin/vue-language-server.js"
 }
