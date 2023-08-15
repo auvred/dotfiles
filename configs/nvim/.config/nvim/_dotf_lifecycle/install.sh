@@ -7,13 +7,9 @@ if [[ $(command -v nvim) ]]; then
   if [[ $MY_WORKSPACE_TYPE != dev-container-slim ]]; then
     mkdir -p $coc_extensions_location
 
-    # TODO: remove after https://github.com/neoclide/coc-tsserver/issues/434 will be resolved
+    # TODO: wait after https://github.com/neoclide/coc-tsserver/issues/434 to be resolved
     # i just don't want to download bloated typescript package twice for slim container
-    packagejson='{
-  "overrides": {
-    "typescript": "^5.0.0"
-  }
-}'
+    packagejson='{}'
     echo $packagejson > $coc_extensions_location/package.json
 
     coc_extensions=$(nvim \
@@ -27,6 +23,7 @@ if [[ $(command -v nvim) ]]; then
       --no-bin-links \
       --no-package-lock \
       --omit=dev \
+      --install-strategy=shallow \
       -C $coc_extensions_location \
       $coc_extensions
   fi
