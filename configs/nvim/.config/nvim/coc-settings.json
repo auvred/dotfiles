@@ -19,5 +19,13 @@
     "jsonc",
     "yaml"
   ],
+  "floatFactory.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
   "workspace.rootPatterns": [".git", ".hg", ".projections.json", ".vim"]
 }
