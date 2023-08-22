@@ -4,6 +4,8 @@ print_phase_name() {
   printf "\n\n\n\n\n"
 }
 
+set -euo pipefail
+
 print_phase_name "Installing common deps"
 
 sudo apt update

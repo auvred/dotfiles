@@ -4,6 +4,15 @@ download_binary() {
   wget -qq -cO- $url | sudo tar -xz -C /usr/local/bin
 }
 
+download_deb_package() {
+  local url=$1
+  local dest=$(mktemp)
+
+  wget -qq -cO $dest $url
+  sudo apt install -y $dest
+  rm -f $dest
+}
+
 download_file_if_not_exist() {
   local url=$1
   local dest=$2

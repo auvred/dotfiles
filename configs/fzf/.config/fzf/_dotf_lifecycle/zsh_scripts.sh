@@ -48,7 +48,6 @@ nrf() {
 
   local max_script_name_len=$(cat $packagejson_path \
     | jq '.scripts | keys | map(length) | max')
-  echo $max_script_name_len
   # we need to get $? of fzf after, but 'local' is a builtin command which returns 0
   local script_name_answer
   script_name_answer=$(cat $packagejson_path \
@@ -98,5 +97,6 @@ nrf() {
 
   local cmd="$package_manager run $script_name"
   echo "Running '\u001b[1;3;32m$cmd\u001b[m'"
+  print -s $cmd
   eval "$cmd"
 }
