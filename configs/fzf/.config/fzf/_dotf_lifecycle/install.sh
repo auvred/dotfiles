@@ -2,7 +2,7 @@
 . $(dirname $0)/constants.sh
 
 if [[ ! $(command -v fzf) ]] || [[ ! $(fzf --version) == $fzf_version* ]]; then
-  download_binary https://github.com/junegunn/fzf/releases/download/$fzf_version/fzf-$fzf_version-linux_amd64.tar.gz
+  install_binary https://github.com/junegunn/fzf/releases/download/$fzf_version/fzf-$fzf_version-linux_amd64.tar.gz
 fi
 
 mkdir -p $(dirname $fzf_completion_dest)

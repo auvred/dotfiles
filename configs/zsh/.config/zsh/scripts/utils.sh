@@ -1,12 +1,12 @@
-download_binary() {
+install_binary() {
   local url=$1
 
   wget -qq -cO- $url | sudo tar -xz -C /usr/local/bin
 }
 
-download_deb_package() {
+install_deb_package() {
   local url=$1
-  local dest=$(mktemp)
+  local dest=$(mktemp).deb
 
   wget -qq -cO $dest $url
   sudo apt install -y $dest
