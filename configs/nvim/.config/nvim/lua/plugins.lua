@@ -114,4 +114,9 @@ require("lazy").setup({
       require("plugins.neoscroll")
     end,
   },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  }
 })
