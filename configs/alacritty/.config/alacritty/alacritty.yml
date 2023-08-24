@@ -1,0 +1,22 @@
+env:
+  TERM: xterm-256color
+
+
+font:
+  normal:
+    family: CaskaydiaCove Nerd Font Mono
+  bold:
+    family: CaskaydiaCove Nerd Font Mono
+  italic:
+    family: CaskaydiaCove Nerd Font Mono
+  bold_italic:
+    family: CaskaydiaCove Nerd Font Mono
+  # size: 9.5
+  size: 11
+
+
+shell:
+  program: /usr/bin/zsh
+
+mouse:
+  hide_when_typing: true
