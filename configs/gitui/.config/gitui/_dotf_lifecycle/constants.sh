@@ -1,1 +1,1 @@
-gitui_version=0.23.0
+gitui_version=0.24.0

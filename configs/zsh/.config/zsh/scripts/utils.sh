@@ -1,12 +1,17 @@
 install_binary() {
   local url=$1
+  local dest=/usr/local/bin
 
-  wget -qq -cO- $url | sudo tar -xz -C /usr/local/bin
+  echo "Installing $url to $dest"
+
+  wget -qq -cO- $url | sudo tar -xz -C $dest
 }
 
 install_deb_package() {
   local url=$1
   local dest=$(mktemp).deb
+
+  echo "Installing $url as .deb package"
 
   wget -qq -cO $dest $url
   sudo apt install -y $dest
