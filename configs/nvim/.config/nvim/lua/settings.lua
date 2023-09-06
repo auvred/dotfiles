@@ -21,7 +21,6 @@ opt.wrap = true
 opt.tabstop = 2
 opt.number = true
 opt.cursorline = true
-opt.cursorcolumn = true
 opt.relativenumber = true
 opt.scrolloff = 10
 opt.ignorecase = true
