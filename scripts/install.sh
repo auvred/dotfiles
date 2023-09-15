@@ -13,12 +13,10 @@ sudo apt full-upgrade -y
 sudo apt install -y \
   curl \
   exa \
-  fd-find \
   git \
   htop \
   jq \
   rsync \
-  ripgrep \
   stow \
   tree \
   wget

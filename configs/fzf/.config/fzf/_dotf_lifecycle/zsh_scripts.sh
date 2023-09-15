@@ -4,7 +4,7 @@
 source_if_exist $fzf_completion_dest
 source_if_exist $fzf_key_bindings_dest
 
-FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+FD_OPTIONS="--follow"
 
 export FZF_CTRL_T_OPTS="
   --preview 'batcat --color=always {}'
