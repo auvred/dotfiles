@@ -3,8 +3,12 @@ local map = require("utils").map
 require("nvim-tree").setup({
   view = {
     preserve_window_proportions = true,
-    number = true,
-    relativenumber = true,
+    float = {
+      enable = true,
+      open_win_config = {
+        border = "double"
+      }
+    }
   },
   git = {
     ignore = false,

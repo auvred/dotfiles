@@ -3,3 +3,4 @@
 [alias]
 	lg = log --graph --pretty=format:'%C(magenta)%h%Creset %C(bold cyan)%d%C(reset) %s - %Cgreen%cr by %an%Creset' --abbrev-commit --date=relative
 	st = status --short --branch
+  clone-shallow = clone --depth 1 --single-branch
