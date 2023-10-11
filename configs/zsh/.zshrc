@@ -26,6 +26,11 @@ set -o vi
 export DOTFILES_DIR=$HOME/.dotfiles
 export DOTFILES_SCRIPT_UTILS=$HOME/.config/zsh/scripts/utils.sh
 
+export LANG='en_US.UTF-8'
+export LANGUAGE='en_US:en'
+export LC_ALL='en_US.UTF-8'
+export LC_TIME='en_US.UTF-8'
+
 # completion
 autoload -Uz compinit && compinit
 fpath=(~/.config/zsh/completion $fpath)
