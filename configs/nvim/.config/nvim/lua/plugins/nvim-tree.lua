@@ -7,6 +7,8 @@ require("nvim-tree").setup({
       enable = true,
       open_win_config = {
         border = "double",
+        width = 60,
+        height = 50,
       },
     },
   },
