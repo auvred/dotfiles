@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup({
     "css",
     "scss",
     "rust",
+    "json",
   },
 
   sync_install = true,

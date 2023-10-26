@@ -122,4 +122,10 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
+  {
+    "eandrju/cellular-automaton.nvim",
+    config = function()
+      require("plugins.cellular-automaton")
+    end,
+  }
 })
