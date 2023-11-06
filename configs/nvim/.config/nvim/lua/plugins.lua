@@ -124,8 +124,12 @@ require("lazy").setup({
   },
   {
     "eandrju/cellular-automaton.nvim",
+    -- requires treesitter
+    cond = function()
+      return not isDevContainerSlim
+    end,
     config = function()
       require("plugins.cellular-automaton")
     end,
-  }
+  },
 })
