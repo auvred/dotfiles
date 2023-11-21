@@ -1,3 +1,7 @@
+. $DOTFILES_SCRIPT_UTILS
+
+watchman_version=v2023.10.09.00
+
 if [[ $(command -v nvim) ]]; then
   nvim --headless "+Lazy! install" +qa
 
@@ -7,8 +11,6 @@ if [[ $(command -v nvim) ]]; then
   if [[ $MY_WORKSPACE_TYPE != dev-container-slim ]]; then
     mkdir -p $coc_extensions_location
 
-    # TODO: wait after https://github.com/neoclide/coc-tsserver/issues/434 to be resolved
-    # i just don't want to download bloated typescript package twice for slim container
     packagejson='{}'
     echo $packagejson > $coc_extensions_location/package.json
 
@@ -26,5 +28,7 @@ if [[ $(command -v nvim) ]]; then
       --install-strategy=shallow \
       -C $coc_extensions_location \
       $coc_extensions
+
+    install_deb_package https://github.com/facebook/watchman/releases/download/${watchman_version}/watchman_ubuntu22.04_${watchman_version}.deb
   fi
 fi
