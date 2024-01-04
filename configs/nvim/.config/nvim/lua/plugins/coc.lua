@@ -5,6 +5,7 @@ vim.g.coc_global_extensions = {
   "coc-emmet",
   "coc-eslint",
   "coc-tsserver",
+  "coc-twoslash-queries",
   "@yaegassy/coc-volar",
   "coc-rust-analyzer",
   "coc-yaml",
