@@ -170,11 +170,11 @@ bar {
 
 
 focus_follows_mouse no
-gaps inner 11
+gaps inner 0
 gaps outer 0
 smart_gaps on
 smart_borders on
-default_border pixel 2
+default_border pixel 1
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/solid-dark-bg.png
 exec --no-startup-id picom
@@ -184,7 +184,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class="yakuake"] floating enable
-for_window [class="systemsettings"] floating enable
+# for_window [class="systemsettings"] floating enable
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
