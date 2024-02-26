@@ -1,10 +1,14 @@
 name: Auto push devcon
 
-on:
-  push:
-    branches:
-      - master
+# devcon is not yet supports new dotfiles
+# on:
+#   push:
+#     branches:
+#       - master
 
+on:
+  workflow_dispatch:
+  
 jobs:
   dispatch:
     name: Dispatch push workflow
