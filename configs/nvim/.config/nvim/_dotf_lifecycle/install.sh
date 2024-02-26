@@ -1,7 +1,3 @@
-. $DOTFILES_SCRIPT_UTILS
-
-watchman_version=v2023.10.09.00
-
 if [[ $(command -v nvim) ]]; then
   nvim --headless "+Lazy! install" +qa
 
@@ -28,7 +24,5 @@ if [[ $(command -v nvim) ]]; then
       --install-strategy=shallow \
       -C $coc_extensions_location \
       $coc_extensions
-
-    install_deb_package https://github.com/facebook/watchman/releases/download/${watchman_version}/watchman_ubuntu22.04_${watchman_version}.deb
   fi
 fi

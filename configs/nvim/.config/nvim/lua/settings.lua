@@ -16,10 +16,12 @@ augroup end
   false
 )
 
-opt.expandtab = true
+opt.expandtab = false
 opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.tabstop = 3
+opt.smartindent = true
 opt.wrap = true
-opt.tabstop = 2
 opt.cursorline = true
 opt.scrolloff = 10
 opt.ignorecase = true

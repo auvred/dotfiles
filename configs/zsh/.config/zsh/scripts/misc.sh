@@ -1,5 +1,4 @@
 alias ll="exa -lha"
-alias fd="fdfind"
 
 sshag() {
   eval $(ssh-agent -s)

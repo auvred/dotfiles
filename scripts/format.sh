@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 npx -y prettier-pnp \
   --pn sh \
   --write \

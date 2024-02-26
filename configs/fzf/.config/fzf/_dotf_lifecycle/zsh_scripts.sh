@@ -1,24 +1,21 @@
-. $DOTFILES_SCRIPT_UTILS
-. $(dirname $0)/constants.sh
-
-source_if_exist $fzf_completion_dest
-source_if_exist $fzf_key_bindings_dest
+. /usr/share/fzf/completion.zsh
+. /usr/share/fzf/key-bindings.zsh
 
 FD_OPTIONS="--follow"
 
 export FZF_CTRL_T_OPTS="
   --preview 'batcat --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-export FZF_DEFAULT_COMMAND="fdfind --type f --type l $FD_OPTIONS"
+export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_OPTS="--preview 'tree -I node_modules -C {} | head -200'"
-export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 
 _fzf_compgen_path() {
-  command fdfind --hidden --follow --exclude .git --exclude node_modules . "$1"
+  command fd --hidden --follow --exclude .git --exclude node_modules . "$1"
 }
 _fzf_compgen_dir() {
-  command fdfind --type d --hidden --follow --exclude .git --exclude node_modules . "$1"
+  command fd --type d --hidden --follow --exclude .git --exclude node_modules . "$1"
 }
 
 #

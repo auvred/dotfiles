@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup({
     "css",
     "scss",
     "rust",
+    "go",
     "json",
   },
 

@@ -1,0 +1,38 @@
+[[block]]
+block = "custom"
+command="echo COOLKID bek" 
+interval = "once"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+device_kind = "sink"
+format = " $icon{ $volume.eng(w:2)|} "
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+device_kind = "source"
+format = " $icon{ $volume.eng(w:2)|} "
+
+[[block]]
+block = "bluetooth"
+mac = "00:8A:76:49:12:42"
+format = " $icon $name{ $percentage|} ok "
+
+[[block]]
+block = "backlight"
+device = "nvidia_0"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage{ $time |} "
+full_format = " $icon $percentage{ $time |} "
+charging_format = " $icon $percentage{ $time |} "
+empty_format = " $icon $percentage{ $time |} "
+not_charging_format = " $icon $percentage{ $time |} "
+
+[[block]]
+block = "time"
+interval = 1
+format = " $timestamp.datetime(f:'%a %d-%m-%Y %T') "

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 print_phase_name() {
   printf "\n\n\n\n\n"
   printf "   === %s ===" "$1"
@@ -6,33 +8,16 @@ print_phase_name() {
 
 set -euo pipefail
 
-print_phase_name "Installing common deps"
-
-sudo apt update
-sudo apt full-upgrade -y
-sudo apt install -y \
-  curl \
-  exa \
-  git \
-  htop \
-  jq \
-  rsync \
-  stow \
-  tree \
-  wget
-
 print_phase_name "Linking configs"
 
 cd ~/.dotfiles/configs
 mkdir -p ~/.config
 
 for program in *; do
-  stow -R -v -t ~ $program
+  stow --restow --verbose --target ~ $program
 done
 
 print_phase_name "Running 'install' scripts"
-
-export DOTFILES_SCRIPT_UTILS=$HOME/.config/zsh/scripts/utils.sh
 
 for program in *; do
   scripts=$(find $program \

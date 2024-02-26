@@ -1,0 +1,20 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 6.5
+
+[font.bold]
+family = "CaskaydiaMono Nerd Font Mono"
+
+[font.bold_italic]
+family = "CaskaydiaMono Nerd Font Mono"
+
+[font.italic]
+family = "CaskaydiaMono Nerd Font Mono"
+
+[font.normal]
+family = "CaskaydiaMono Nerd Font Mono"
+
+[mouse]
+hide_when_typing = true
