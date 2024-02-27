@@ -6,11 +6,11 @@ format = "{name} {time}"
 [[sessions]]
 id = "work"
 name = "Work"
-duration = "10s"
+duration = "25m"
 command = "notify-send -t 999999999 'work session is done'"
 
 [[sessions]]
 id = "rest"
 name = "Rest"
-duration = "8s"
+duration = "5m"
 command = "notify-send -t 999999999 'rest session is done'"
