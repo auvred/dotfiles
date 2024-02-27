@@ -8,7 +8,7 @@ name: Auto push devcon
 
 on:
   workflow_dispatch:
-  
+
 jobs:
   dispatch:
     name: Dispatch push workflow

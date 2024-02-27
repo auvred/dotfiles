@@ -35,6 +35,7 @@
 - `starship`
 - `stow`
 - `tmux`
+- `uair`
 - `zsh`
 
 ### Other stuff
