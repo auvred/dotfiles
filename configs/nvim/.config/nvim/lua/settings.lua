@@ -16,7 +16,7 @@ augroup end
   false
 )
 
-opt.expandtab = false
+opt.expandtab = true
 opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.tabstop = 3
