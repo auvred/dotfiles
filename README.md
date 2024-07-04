@@ -1,5 +1,8 @@
 # dotfiles
 
+> [!IMPORTANT]
+> I've moved to NixOS. See my [neovim-flake](https://github.com/auvred/neovim-flake) and [nixos-config](https://github.com/auvred/nixos-config).
+
 ## Setup
 
 - WM: [i3](https://i3wm.org/)
